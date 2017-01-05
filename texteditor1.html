@@ -1,0 +1,197 @@
+<html>
+
+
+    <head>
+
+        <title>Write</title>
+
+        <style>
+
+            @font-face {
+              font-family: 'CenturySchoolbookStd';
+              src: url(CenturySchoolbookStd.otf) format("opentype");
+            }
+
+            #textbox {
+              font-size: 30px;
+              font-family: 'CenturySchoolbookStd';
+              position: absolute;
+              text-align: center;
+              left: 50%;
+              top: 50%;
+              transform: translateX(-50%) translateY(-50%);
+            }
+
+            #demo {
+              font-size: 30px;
+              font-family: 'CenturySchoolbookStd';
+              position: absolute;
+              text-align: center;
+              left: 50%;
+              top: 65%;
+              transform: translateX(-50%);
+            }
+
+
+            #pesach {
+              position: absolute;
+              width: auto;
+              height: 150px;
+              left: 50%;
+              top: -10%;
+              transform: translateX(-50%);
+              display: none;
+            }
+
+            #sukkot {
+              position: absolute;
+              width: auto;
+              height: 166px;
+              left: 50%;
+              top: 60%;
+              transform: translateX(-50%);
+              display: none;
+            }
+
+            [contenteditable="true"]:empty::before {
+              content:attr(data-text);
+              color: #D3D3D3;
+            }
+
+            [contenteditable="true"]:focus {
+              border:none;
+              outline:none;
+              color: #000000;
+            }
+
+        </style>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"> </script>
+
+        <script>
+            //autofocus
+            window.onload = function() {
+                document.getElementById("textbox").focus();
+                document.getElementById("textbox").setAttribute("data-text", "Give it a go");
+            };
+        </script>
+
+    </head>
+
+
+    <body>
+
+        <div id="textbox" contenteditable="true"></div>
+
+        <p id="demo"></p>
+
+        <div id="sukkot"><img src="sukkottorah.jpg" /></div>
+
+        <div id="pesach"><img src="pesach.jpg" /></div>
+
+        <script>
+
+
+            /* Every nth word sliced
+            function myFunction() {
+
+                var x = document.getElementById("textbox").innerHTML;
+
+                var words = x.split(" ");
+
+                for(var i = 2; i < words.length; i+=3){
+                    var _ord = words[i].slice(1);
+
+                }
+
+                var _tring = words.join(" ");
+
+                document.getElementById("demo").innerHTML = _tring;
+
+            }
+            */
+
+            /* Every nth word replaced -- what about only after nth word is typed out?
+            function myFunction() {
+
+                var x = document.getElementById("textbox").innerHTML;
+
+                var words = x.split(" ");
+
+                var replace = "?";
+
+                for(var i = 2; i < words.length; i+=3){
+                    words[i] = replace;
+                }
+
+                var _tring = words.join(" ");
+
+                document.getElementById("demo").innerHTML = _tring;
+
+            }
+            */
+
+
+            /* Each word missing first letter
+            function myFunction() {
+
+                //make content of body a variable
+                var x = document.getElementById("textbox").innerHTML;
+
+                //convert body into an array of substrings
+                var words = x.split(" ");
+
+                //new variable for edited body
+                var _tring = "";
+
+                //for the length of the array, each word will be missing first letter, then aggregate words
+                for(var i = 0; i < words.length; i++){
+                    var _ord = words[i].slice(1);
+                    _tring = _tring + _ord + " ";
+                }
+
+                //display edited body
+                document.getElementById("demo").innerHTML = _tring;
+            }
+            */
+
+            /* simple mirroring, words bring up images
+            function myFunction() {
+
+                //var x = document.getElementById("textbox").innerHTML;
+                //document.getElementById("demo").innerHTML = x;
+
+                if (x.includes("sukkot")) {
+                    $("#sukkot").css("display", "block");
+                } else {
+                    $("#sukkot").css("display", "none");
+                }
+
+                if (x.includes("pesach")) {
+                    $("#pesach").css("display", "block");
+                } else {
+                    $("#pesach").css("display", "none");
+                }
+
+            }
+            */
+
+        </script>
+
+    </body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

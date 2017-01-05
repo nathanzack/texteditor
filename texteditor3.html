@@ -1,0 +1,150 @@
+
+<html>
+
+
+    <head>
+
+        <title>Write</title>
+
+        <style>
+
+            @font-face {
+              font-family: 'CenturySchoolbookStd';
+              src: url(CenturySchoolbookStd.otf) format("opentype");
+            }
+
+            #textbox {
+              font-size: 14px;
+              font-family: 'CenturySchoolbookStd';
+              position: absolute;
+              width: 90%;
+              left: 5%;
+              top: 5%;
+            }
+
+            #gridcontainer {
+              position: absolute;
+              width: 90%;
+              height: 100%;
+              top: 10%;
+              left: 5%;
+            }
+
+            .unit {
+              font-size: 14px;
+              font-family: 'CenturySchoolbookStd';
+              height: 500px;
+              width: 10px;
+              word-wrap: break-word;
+              display: inline-block;
+              /*border: solid 1px black;*/
+            }
+
+            /*
+            #lemon img {
+              height: 80px;
+              width: auto;
+              display: none;
+            }
+            */
+
+            [contenteditable="true"]:focus {
+              border:none;
+              outline:none;
+            }
+
+            [contenteditable="true"]:empty::before {
+              content:attr(data-text);
+              color: #D3D3D3;
+            }
+
+            [contenteditable="true"]:focus {
+              border:none;
+              outline:none;
+              color: #000000;
+            }
+
+        </style>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"> </script>
+
+        <script>
+            //autofocus
+            window.onload = function() {
+                document.getElementById("textbox").focus();
+                document.getElementById("textbox").setAttribute("data-text", "Give it a go");
+            };
+        </script>
+
+        <script>
+
+            //create divs
+            $(document).ready(function() {
+
+                for(var i = 0; i < 111; i++) {
+
+                    var unit = $("<div class='unit'></div>");
+                    unit.appendTo('#gridcontainer');
+
+                }
+
+            });
+
+        </script>
+
+    </head>
+
+
+    <body>
+
+        <div id="textbox" contenteditable="true" onkeyup="myFunction()"></div>
+
+        <div id="gridcontainer"></div>
+
+        <script>
+
+            //fill divs with text
+            function myFunction() {
+
+                var words = document.getElementById("textbox").innerHTML;
+
+                // BASIC
+                $('.unit').each(function() {
+                    $(this).html(words);
+                });
+
+
+                /*IF X SHOW IMAGE OF X
+                $('.unit').each(function() {
+
+                    if (words.includes("lemon")) {
+                        $(this).html("<img id='#lemon' src='paintedlemon.png' />");
+                    } else {
+                        $(this).html(words);
+                    }
+
+                });
+                */
+
+            }
+
+        </script>
+
+
+    </body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

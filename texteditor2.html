@@ -1,0 +1,161 @@
+<html>
+
+
+    <head>
+
+        <title>Write</title>
+
+        <style>
+
+            @font-face {
+              font-family: 'CenturySchoolbookStd';
+              src: url(CenturySchoolbookStd.otf) format("opentype");
+            }
+
+            #textbox {
+              font-size: 14px;
+              font-family: 'CenturySchoolbookStd';
+              position: absolute;
+              width: 90%;
+              left: 5%;
+              top: 5%;
+            }
+
+            #gridcontainer {
+              position: absolute;
+              width: 85%;
+              height: 80%;
+              top: 10%;
+              left: 5%;
+            }
+
+            .unit {
+              position: absolute;
+              font-size: 14px;
+              font-family: 'CenturySchoolbookStd';
+              height: 100px;
+              width: 100px;
+              margin-top: 15px;
+              margin-bottom: 15px;
+              margin-right: 30px;
+              /*border: solid 1px black;*/
+              overflow: auto;
+            }
+
+            /*
+            #lemon img {
+              height: 80px;
+              width: auto;
+              display: none;
+            }
+            */
+
+            [contenteditable="true"]:focus {
+              border:none;
+              outline:none;
+            }
+
+        </style>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"> </script>
+
+        <script>
+
+            //create divs
+            $(document).ready(function() {
+
+                for(var i = 0; i < 50; i++) {
+
+                    var unit = $("<div class='unit'></div>");
+                    unit.appendTo('#gridcontainer');
+
+                }
+
+            });
+
+        </script>
+
+    </head>
+
+
+    <body>
+
+        <div id="textbox" contenteditable="true" onkeyup="myFunction()">Type something</div>
+
+        <div id="gridcontainer"></div>
+
+        <script>
+
+            //assign random positions
+            $(document).ready(function() {
+
+                var unit_chance = function(){
+
+                //Assign random position
+                function getRandomY (){
+                    return Math.floor(Math.random() * $('#gridcontainer').height());
+                }
+
+                function getRandomX (){
+                    return Math.floor(Math.random() * $('#gridcontainer').width());
+                }
+
+                $('.unit').each(function() {
+                    $(this).css({"top": getRandomY(), "left": getRandomX()});
+                });
+
+                };
+
+                unit_chance();
+
+            });
+
+        </script>
+
+        <script>
+
+            //fill divs with text
+            function myFunction() {
+
+                var words = document.getElementById("textbox").innerHTML;
+
+                // BASIC
+                $('.unit').each(function() {
+                    $(this).html(words);
+                });
+
+
+                /*IF X SHOW IMAGE OF X
+                $('.unit').each(function() {
+
+                    if (words.includes("lemon")) {
+                        $(this).html("<img id='#lemon' src='paintedlemon.png' />");
+                    } else {
+                        $(this).html(words);
+                    }
+
+                });
+                */
+
+            }
+
+        </script>
+
+
+    </body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

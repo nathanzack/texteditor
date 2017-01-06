@@ -55,9 +55,28 @@
               outline:none;
             }
 
+            [contenteditable="true"]:empty::before {
+              content:attr(data-text);
+              color: #D3D3D3;
+            }
+
+            [contenteditable="true"]:focus {
+              border:none;
+              outline:none;
+              color: #000000;
+            }
+
         </style>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"> </script>
+
+        <script>
+            //autofocus
+            window.onload = function() {
+                document.getElementById("textbox").focus();
+                document.getElementById("textbox").setAttribute("data-text", "Type something");
+            };
+        </script>
 
         <script>
 
@@ -80,7 +99,7 @@
 
     <body>
 
-        <div id="textbox" contenteditable="true" onkeyup="myFunction()">Type something</div>
+        <div id="textbox" contenteditable="true" onkeyup="myFunction()"></div>
 
         <div id="gridcontainer"></div>
 

@@ -1,0 +1,115 @@
+<html>
+
+
+    <head>
+
+        <title>Write</title>
+
+        <style>
+
+            @font-face {
+              font-family: 'CenturySchoolbookStd';
+              src: url(CenturySchoolbookStd.otf) format("opentype");
+            }
+
+            #textbox {
+              font-size: 30px;
+              font-family: 'CenturySchoolbookStd';
+              position: absolute;
+              text-align: center;
+              left: 50%;
+              top: 50%;
+              transform: translateX(-50%) translateY(-50%);
+            }
+
+            #demo {
+              font-size: 30px;
+              font-family: 'CenturySchoolbookStd';
+              position: absolute;
+              text-align: center;
+              left: 50%;
+              top: 65%;
+              transform: translateX(-50%);
+            }
+
+
+            #pesach {
+              position: absolute;
+              width: auto;
+              height: 150px;
+              left: 50%;
+              top: -10%;
+              transform: translateX(-50%);
+              display: none;
+            }
+
+            #sukkot {
+              position: absolute;
+              width: auto;
+              height: 166px;
+              left: 50%;
+              top: 60%;
+              transform: translateX(-50%);
+              display: none;
+            }
+
+            [contenteditable="true"]:empty::before {
+              content:attr(data-text);
+              color: #D3D3D3;
+            }
+
+            [contenteditable="true"]:focus {
+              border:none;
+              outline:none;
+              color: #000000;
+            }
+
+        </style>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"> </script>
+
+        <script>
+            //autofocus
+            window.onload = function() {
+                document.getElementById("textbox").focus();
+                document.getElementById("textbox").setAttribute("data-text", "Give it a go");
+            };
+        </script>
+
+    </head>
+
+
+    <body>
+
+        <div id="textbox" contenteditable="true"></div>
+
+        <p id="demo"></p>
+
+        <script>
+
+            function myFunction() {
+
+                var x = document.getElementById("textbox").innerHTML;
+                document.getElementById("demo").innerHTML = x;
+
+            }
+
+        </script>
+
+    </body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
